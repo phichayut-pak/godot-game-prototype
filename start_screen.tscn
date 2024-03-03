@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://6j1doh6c3iqh"]
+
+[ext_resource type="FontFile" uid="uid://blyk655f8l1mb" path="res://SpeedrushRegular-qZWp6.otf" id="1_jg22b"]
+[ext_resource type="Script" path="res://start_screen.gd" id="1_yx70k"]
+[ext_resource type="Texture2D" uid="uid://cptsj7vf3bp4b" path="res://COVER.png" id="2_0an8n"]
+[ext_resource type="Script" path="res://Button.gd" id="2_blpeq"]
+[ext_resource type="AudioStream" uid="uid://crn4fgtmlvmbb" path="res://Title_song.mp3" id="5_d8dxv"]
+
+[node name="StartScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 143.0
+offset_bottom = 99.0
+script = ExtResource("1_yx70k")
+
+[node name="Button" type="Button" parent="."]
+top_level = true
+visibility_layer = 31
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.628
+anchor_bottom = 0.589
+offset_left = 398.0
+offset_top = 443.0
+offset_right = -18.4561
+offset_bottom = 208.328
+theme_override_fonts/font = ExtResource("1_jg22b")
+theme_override_font_sizes/font_size = 80
+text = "Start"
+icon_alignment = 1
+script = ExtResource("2_blpeq")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_top = 2.0
+offset_right = 1149.0
+offset_bottom = 652.0
+texture = ExtResource("2_0an8n")
+expand_mode = 1
+
+[node name="TitleSong" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_d8dxv")
+
+[connection signal="button_down" from="Button" to="Button" method="_on_button_down"]
